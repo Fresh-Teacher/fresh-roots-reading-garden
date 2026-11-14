@@ -1,7 +1,19 @@
 import { describe, expect, it } from 'vitest';
 import { requestAdOnce, shouldRequestManualAd, showCatalogAd } from '@/lib/manual-ads';
+import units from '@/data/ad-units.json';
+import tracking from '@/data/site-tracking.json';
 
 describe('manual ad safeguards', () => {
+  it('uses the supplied Catalog Feed unit', () => {
+    expect(units.catalog).toBe('6708057658');
+  });
+  it('uses the supplied Document Detail unit', () => {
+    expect(units.document).toBe('7993219163');
+  });
+  it('uses the supplied publisher for units and the shared script', () => {
+    expect(tracking.adsensePublisher).toBe('ca-pub-8782637659456848');
+    expect(new URL(tracking.adsenseScript).searchParams.get('client')).toBe('ca-pub-8782637659456848');
+  });
   it('places a single catalog ad after eight documents, only when more follow', () => {
     expect(Array.from({ length: 12 }, (_, i) => i).filter(i => showCatalogAd(i, 12))).toEqual([7]);
     expect(showCatalogAd(7, 8)).toBe(false);

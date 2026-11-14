@@ -18,4 +18,5 @@
 
 # Clean manual advertisements
 - [x] Add labeled, stable catalog and document ad spaces; 19 focused tests pass and desktop/phone checks confirm eight preceding documents, intact downloads, no horizontal overflow, and no preview ad requests.
-- [ ] Activate manual units — waiting for the user's two AdSense unit IDs and disabling unwanted Auto Ads in AdSense.
+- [x] Configure manual units — confirmed Catalog Feed `6708057658` and Document Detail `7993219163` for the supplied publisher; add exact-value regression checks.
+- [ ] Confirm live manual ads and disable unwanted Auto Ads — requires production deployment and the user's AdSense settings; previews intentionally remain ad-free.
