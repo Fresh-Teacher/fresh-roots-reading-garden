@@ -6,6 +6,7 @@ import repairCSS from '../styles/import-repairs.css?raw';
 import capturedCssUrl from '../styles/captured.css?url';
 
 export const Route = createFileRoute("/")({
+  staticData: { sitemap: true },
   head: () => ({ meta: [
     { title: "Fresh Teacher's Library" },
     { name: "description", content: "Fresh Teacher's e-library of lesson notes, past papers and schemes of work for Ugandan schools." },

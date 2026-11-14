@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/cookies")({
+  staticData: { sitemap: true },
   head: () => ({
     meta: [
       { title: "Cookie Policy — Fresh Teacher's Platform" },

@@ -16,6 +16,7 @@ import { Route as CookiesRouteImport } from './routes/cookies'
 import { Route as DisclaimerRouteImport } from './routes/disclaimer'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as SearchRouteImport } from './routes/search'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as TermsRouteImport } from './routes/terms'
 import { Route as DocSlugRouteImport } from './routes/doc.$slug'
 import { Route as MoreRepoRouteImport } from './routes/more.$repo'
@@ -55,6 +56,11 @@ const SearchRoute = SearchRouteImport.update({
   path: '/search',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const TermsRoute = TermsRouteImport.update({
   id: '/terms',
   path: '/terms',
@@ -79,6 +85,7 @@ export interface FileRoutesByFullPath {
   '/disclaimer': typeof DisclaimerRoute
   '/privacy': typeof PrivacyRoute
   '/search': typeof SearchRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms': typeof TermsRoute
   '/doc/$slug': typeof DocSlugRoute
   '/more/$repo': typeof MoreRepoRoute
@@ -91,6 +98,7 @@ export interface FileRoutesByTo {
   '/disclaimer': typeof DisclaimerRoute
   '/privacy': typeof PrivacyRoute
   '/search': typeof SearchRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms': typeof TermsRoute
   '/doc/$slug': typeof DocSlugRoute
   '/more/$repo': typeof MoreRepoRoute
@@ -104,6 +112,7 @@ export interface FileRoutesById {
   '/disclaimer': typeof DisclaimerRoute
   '/privacy': typeof PrivacyRoute
   '/search': typeof SearchRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms': typeof TermsRoute
   '/doc/$slug': typeof DocSlugRoute
   '/more/$repo': typeof MoreRepoRoute
@@ -118,6 +127,7 @@ export interface FileRouteTypes {
     | '/disclaimer'
     | '/privacy'
     | '/search'
+    | '/sitemap.xml'
     | '/terms'
     | '/doc/$slug'
     | '/more/$repo'
@@ -130,6 +140,7 @@ export interface FileRouteTypes {
     | '/disclaimer'
     | '/privacy'
     | '/search'
+    | '/sitemap.xml'
     | '/terms'
     | '/doc/$slug'
     | '/more/$repo'
@@ -142,6 +153,7 @@ export interface FileRouteTypes {
     | '/disclaimer'
     | '/privacy'
     | '/search'
+    | '/sitemap.xml'
     | '/terms'
     | '/doc/$slug'
     | '/more/$repo'
@@ -155,6 +167,7 @@ export interface RootRouteChildren {
   DisclaimerRoute: typeof DisclaimerRoute
   PrivacyRoute: typeof PrivacyRoute
   SearchRoute: typeof SearchRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   TermsRoute: typeof TermsRoute
   DocSlugRoute: typeof DocSlugRoute
   MoreRepoRoute: typeof MoreRepoRoute
@@ -211,6 +224,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SearchRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/terms': {
       id: '/terms'
       path: '/terms'
@@ -243,6 +263,7 @@ const rootRouteChildren: RootRouteChildren = {
   DisclaimerRoute: DisclaimerRoute,
   PrivacyRoute: PrivacyRoute,
   SearchRoute: SearchRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
   TermsRoute: TermsRoute,
   DocSlugRoute: DocSlugRoute,
   MoreRepoRoute: MoreRepoRoute,

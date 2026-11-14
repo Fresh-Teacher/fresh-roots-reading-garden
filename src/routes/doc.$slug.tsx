@@ -9,6 +9,7 @@ import { documentContent } from '@/lib/document-content';
 const docStylesheets = ['bootstrap.min.css', 'font-awesome.css', 'flipbook.style.css'].map(file => `/resource-source/css/${file}`);
 
 export const Route = createFileRoute('/doc/$slug')({
+  staticData: { sitemap: false },
   validateSearch: browsingContext,
   loaderDeps: ({ search }) => ({ source: search.source }),
   loader: async ({ params, deps }) => {

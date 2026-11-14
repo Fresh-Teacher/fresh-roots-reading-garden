@@ -35,6 +35,7 @@ async function hydratePage<T extends { items: import('@/lib/resources').Resource
 }
 
 export const Route = createFileRoute('/$')({
+  staticData: { sitemap: true },
   loader: async ({ params }) => {
     const path = (params._splat ?? '').replace(/\/+$/, '');
     if (path === 'index.html') throw redirect({ to: '/', statusCode: 301 });
@@ -76,7 +77,8 @@ export const Route = createFileRoute('/$')({
   staleTime: Infinity,
   preloadStaleTime: Infinity,
   head: ({ loaderData }) => {
-    const title = loaderData?.data.title ?? 'Resource unavailable | Fresh Teacher';
+    const pageTitle = loaderData?.data.title ?? 'Resource unavailable | Fresh Teacher';
+    const title = pageTitle.includes('Fresh Teacher') ? pageTitle : `${pageTitle} | Fresh Teacher`;
     const description = loaderData?.data.description ?? 'The requested Fresh Teacher resource page is unavailable.';
     return { meta: [
       { title }, { name: 'description', content: description },

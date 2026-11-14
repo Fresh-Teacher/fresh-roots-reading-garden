@@ -10,6 +10,7 @@ import { infoHead } from '@/components/info-page';
 import { readRecentSearches, rememberSearch, RECENT_SEARCH_KEY, POPULAR_SEARCHES } from '@/lib/search-history';
 
 export const Route = createFileRoute('/search')({
+  staticData: { sitemap: false },
   validateSearch: (search: Record<string, unknown>) => ({ query: typeof search['query'] === 'string' ? search['query'] : '', page: Number.isFinite(Number(search['page'])) ? Math.max(1, Math.floor(Number(search['page'])) || 1) : 1, sort: librarySort(search['sort']), type: typeof search['type'] === 'string' ? search['type'] : 'all', layout: search['layout'] === 'list' ? 'list' : 'grid' }),
   loaderDeps: ({ search }) => search,
   loader: ({ deps }) => searchLibrary(deps.query, deps.page, 12, deps.sort, deps.type),

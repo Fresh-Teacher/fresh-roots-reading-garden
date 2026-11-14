@@ -14,6 +14,7 @@ const legacyPages = import.meta.glob<{ default: StaticPage<LegacyPageData> }>('.
 const fragmentFiles = import.meta.glob<{ default: string }>('../data/legacy/fragments/*.json');
 
 export const Route = createFileRoute('/more/$repo')({
+  staticData: { sitemap: false },
   ssr: false,
   loader: async ({ params }) => {
     const entry = findMoreDocumentsRepo(params.repo);

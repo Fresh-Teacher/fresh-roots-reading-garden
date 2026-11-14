@@ -2,6 +2,7 @@ import { createFileRoute } from '@tanstack/react-router';
 import { InfoPage, infoHead } from '@/components/info-page';
 
 export const Route = createFileRoute('/terms')({
+  staticData: { sitemap: true },
   head: () => infoHead('Terms of Service', "The terms that apply when you access and use Fresh Teacher's Library educational resources."),
   component: () => <InfoPage title="Terms of Service" sections={[
     { heading: 'Acceptance of Terms', body: ["By accessing and using Fresh Teacher's Library, you agree to be bound by these Terms of Service. If you do not agree with any part of these terms, you may not access or use our services."] },

@@ -2,6 +2,7 @@ import { createFileRoute } from '@tanstack/react-router';
 import { InfoPage, infoHead } from '@/components/info-page';
 
 export const Route = createFileRoute('/disclaimer')({
+  staticData: { sitemap: true },
   head: () => infoHead('Disclaimer', "How Fresh Teacher's Library resources may be used, their accuracy, curriculum alignment and limits of liability."),
   component: () => <InfoPage title="Disclaimer" sections={[
     { heading: 'Educational Use Only', body: ["The resources provided by Fresh Teacher's Library are intended solely for educational purposes. These materials are designed to support teaching and learning within the Uganda curriculum framework and should be used as supplementary educational aids."] },

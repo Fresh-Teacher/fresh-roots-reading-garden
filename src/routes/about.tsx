@@ -2,6 +2,7 @@ import { createFileRoute } from '@tanstack/react-router';
 import { InfoPage, infoHead } from '@/components/info-page';
 
 export const Route = createFileRoute('/about')({
+  staticData: { sitemap: true },
   head: () => infoHead('About Us', "Fresh Teacher's Library empowers educators across Uganda with curriculum-aligned notes, schemes of work and past papers."),
   component: () => <InfoPage title="About Fresh Teacher's Library" sections={[
     { heading: 'Our Mission', body: ["Fresh Teacher's Library is dedicated to empowering educators across Uganda by providing comprehensive, curriculum-aligned educational resources. We strive to make quality teaching materials accessible to all teachers, from nursery to senior six, supporting educational excellence throughout the country."] },

@@ -2,6 +2,7 @@ import { createFileRoute } from '@tanstack/react-router';
 import { InfoPage, infoHead } from '@/components/info-page';
 
 export const Route = createFileRoute('/privacy')({
+  staticData: { sitemap: true },
   head: () => infoHead('Privacy Policy', "What information Fresh Teacher's Library collects, how it is used and protected, and your rights."),
   component: () => <InfoPage title="Privacy Policy" sections={[
     { heading: 'Information We Collect', body: ['We may collect the following types of information:'], list: ['Personal information you provide when creating an account', 'Usage data about how you interact with our platform', 'Technical information such as your IP address and browser type', 'Educational preferences and resource access patterns'] },

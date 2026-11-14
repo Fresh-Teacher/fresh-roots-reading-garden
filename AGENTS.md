@@ -40,6 +40,7 @@ use the editor.
 - Use the export script to validate every downloaded media file and reject unmapped media references so exports cannot silently contain broken media.
 
 ## External static deployment
+- Derive sitemap pages from explicit route decisions and registered legacy catalogs; prerender XML for Pages and verify each listed HTML file before deployment, excluding shell-only document/repository URLs and non-page-specific dates.
 - Keep GitHub Pages configuration separate from the Lovable runtime; prerender catalog URLs and convert directory output to literal legacy HTML files to preserve incoming links.
 - Deploy Pages only by manual workflow that materializes standalone source automatically; refuse unresolved media or missing page output so failed preparation cannot replace the live site.
 - Load AdSense only on the approved production hostname with the production flag and accepted cookie choice; previews must not generate ad traffic.

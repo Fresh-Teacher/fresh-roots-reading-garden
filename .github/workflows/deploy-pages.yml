@@ -23,12 +23,13 @@ jobs:
         with:
           python-version: '3.12'
       - run: bun install --frozen-lockfile
-      - run: bun run test -- src/test/adsense.test.ts src/test/github-pages.test.ts src/test/standalone-build.test.ts
+      - run: bun run test -- src/test/adsense.test.ts src/test/github-pages.test.ts src/test/sitemap.test.ts src/test/standalone-build.test.ts
       - run: python3 -m unittest discover -s src/test -p 'test_github_pages.py'
       - name: Download validated local media and build static website
         run: bun run build:pages
         env:
           VITE_ENABLE_ADSENSE: 'true'
+          VITE_PUBLIC_SITE_URL: 'https://fresh-teacher.github.io'
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist/client
